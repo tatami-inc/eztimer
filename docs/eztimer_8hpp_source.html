@@ -103,67 +103,67 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeztimer.html">eztimer</a> {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structeztimer_1_1Options.html">Options</a> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">iterations</a> = 10;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">   37</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a> = 1;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">   42</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">seed</a> = 123456;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">   52</a></span>    std::optional&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">   62</a></span>    std::optional&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeztimer.html">eztimer</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structeztimer_1_1Options.html">Options</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">iterations</a> = 10;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">   38</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a> = 1;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">   43</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_variable" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">seed</a> = 123456;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">   53</a></span>    std::optional&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">   63</a></span>    std::optional&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
 </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html">   68</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structeztimer_1_1Timings.html">Timings</a> {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">   72</a></span>    std::vector&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">times</a>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">   77</a></span>    std::chrono::duration&lt;double&gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">mean</a> = std::chrono::duration&lt;double&gt;(0);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">   82</a></span>    std::chrono::duration&lt;double&gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">sd</a> = std::chrono::duration&lt;double&gt;(0);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="};">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html">   69</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structeztimer_1_1Timings.html">Timings</a> {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">   73</a></span>    std::vector&lt;std::chrono::duration&lt;double&gt; &gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">times</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">   78</a></span>    std::chrono::duration&lt;double&gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">mean</a> = std::chrono::duration&lt;double&gt;(0);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">   83</a></span>    std::chrono::duration&lt;double&gt; <a class="code hl_variable" href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">sd</a> = std::chrono::duration&lt;double&gt;(0);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Result_&gt;</div>
-<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">  104</a></span>std::vector&lt;Timings&gt; <a class="code hl_function" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">time</a>(</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">const</span> std::vector&lt;std::function&lt;Result_()&gt; &gt;&amp; funs,</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> Result_&amp;, std::size_t)&gt;&amp; check,</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structeztimer_1_1Options.html">Options</a>&amp; opt</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>) {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">const</span> <span class="keyword">auto</span> nfun = funs.size();</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> num_iterations = opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">iterations</a> + opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">// Create a random execution sequence, so no function gets a consistent</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">// benefit from running after another function.</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::mt19937_64 rng(opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">seed</a>);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::vector&lt;std::size_t&gt; order;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    order.reserve(num_iterations * nfun);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_iterations; ++i) {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">for</span> (std::size_t f = 0; f &lt; nfun; ++f) {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            order.push_back(f);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        std::shuffle(order.end() - nfun, order.end(), rng);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    std::vector&lt;Timings&gt; output(nfun);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">auto</span> total_time = std::chrono::duration&lt;double&gt;(0);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">auto</span> oIt = order.begin();</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_iterations; ++i) {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span> (std::size_t f = 0; f &lt; nfun; ++f, ++oIt) {</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keyword">const</span> <span class="keyword">auto</span> current = *oIt;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keyword">auto</span>&amp; curout = output[current];</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordflow">if</span> (i &gt;= opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>.has_value() &amp;&amp; curout.mean &gt;= *(opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>)) {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;SKIP\t&quot;</span> &lt;&lt; current &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; curout.mean.count() &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>-&gt;count() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Result_&gt;</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">  105</a></span>std::vector&lt;Timings&gt; <a class="code hl_function" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">time</a>(</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">const</span> std::vector&lt;std::function&lt;Result_()&gt; &gt;&amp; funs,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> Result_&amp;, std::size_t)&gt;&amp; check,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structeztimer_1_1Options.html">Options</a>&amp; opt</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">const</span> <span class="keyword">auto</span> nfun = funs.size();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> num_iterations = opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">iterations</a> + opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">// Create a random execution sequence, so no function gets a consistent</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// benefit from running after another function.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::mt19937_64 rng(opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">seed</a>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    std::vector&lt;std::size_t&gt; order;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    order.reserve(num_iterations * nfun);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_iterations; ++i) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">for</span> (std::size_t f = 0; f &lt; nfun; ++f) {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            order.push_back(f);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        std::shuffle(order.end() - nfun, order.end(), rng);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    std::vector&lt;Timings&gt; output(nfun);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">auto</span> total_time = std::chrono::duration&lt;double&gt;(0);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">auto</span> oIt = order.begin();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_iterations; ++i) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">for</span> (std::size_t f = 0; f &lt; nfun; ++f, ++oIt) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keyword">const</span> <span class="keyword">auto</span> current = *oIt;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keyword">auto</span>&amp; curout = output[current];</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">if</span> (i &gt;= opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>.has_value() &amp;&amp; curout.mean &gt;= *(opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">max_time_per_function</a>)) {</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                }</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>.has_value() &amp;&amp; total_time &gt;= *(opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>)) {</div>
@@ -176,18 +176,18 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keyword">const</span> <span class="keyword">auto</span> end = std::chrono::steady_clock::now();</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keyword">const</span> <span class="keyword">auto</span> curtime = std::chrono::duration_cast&lt;std::chrono::duration&lt;double&gt; &gt;(end - start);</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            curout.times.push_back(curtime);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            std::cout &lt;&lt; current &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; curtime.count() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">if</span> (i &gt;= opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>) {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                check(res, current);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                curout.mean += curtime;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>.has_value()) {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    total_time += curtime;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                }</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            }</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">if</span> (i &gt;= opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">burn_in</a>) {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                check(res, current);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                curout.mean += curtime;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                <span class="keywordflow">if</span> (opt.<a class="code hl_variable" href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a>.has_value()) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    total_time += curtime;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    assert(oIt == order.end());</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; curout : output) {</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="comment">// Throwing away the burn-in cycles. We add them and throw them away to</span></div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="comment">// ensure that the compiler doesn&#39;t just optimize out the calls.</span></div>
@@ -214,17 +214,17 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespaceeztimer_html"><div class="ttname"><a href="namespaceeztimer.html">eztimer</a></div><div class="ttdoc">Easy timing of C++ functions.</div></div>
-<div class="ttc" id="anamespaceeztimer_html_a371dee9730672f845910ce479347ec6e"><div class="ttname"><a href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">eztimer::time</a></div><div class="ttdeci">std::vector&lt; Timings &gt; time(const std::vector&lt; std::function&lt; Result_()&gt; &gt; &amp;funs, const std::function&lt; void(const Result_ &amp;, std::size_t)&gt; &amp;check, const Options &amp;opt)</div><div class="ttdef"><b>Definition</b> eztimer.hpp:104</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html"><div class="ttname"><a href="structeztimer_1_1Options.html">eztimer::Options</a></div><div class="ttdoc">Options for time().</div><div class="ttdef"><b>Definition</b> eztimer.hpp:26</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html_a33bc07b4322bb49999aa0d674eb63096"><div class="ttname"><a href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">eztimer::Options::burn_in</a></div><div class="ttdeci">int burn_in</div><div class="ttdef"><b>Definition</b> eztimer.hpp:37</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html_a3eae88a86e674a4b278b908bfe8a4878"><div class="ttname"><a href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">eztimer::Options::seed</a></div><div class="ttdeci">unsigned long long seed</div><div class="ttdef"><b>Definition</b> eztimer.hpp:42</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html_a5178899482fa713364c02daebfbec1fc"><div class="ttname"><a href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">eztimer::Options::iterations</a></div><div class="ttdeci">int iterations</div><div class="ttdef"><b>Definition</b> eztimer.hpp:31</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html_a57950559685cf449140e6bd819ee620b"><div class="ttname"><a href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">eztimer::Options::max_time_per_function</a></div><div class="ttdeci">std::optional&lt; std::chrono::duration&lt; double &gt; &gt; max_time_per_function</div><div class="ttdef"><b>Definition</b> eztimer.hpp:52</div></div>
-<div class="ttc" id="astructeztimer_1_1Options_html_ad9567c0e8bc4eb080363d1cd0e68a59b"><div class="ttname"><a href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">eztimer::Options::max_time_total</a></div><div class="ttdeci">std::optional&lt; std::chrono::duration&lt; double &gt; &gt; max_time_total</div><div class="ttdef"><b>Definition</b> eztimer.hpp:62</div></div>
-<div class="ttc" id="astructeztimer_1_1Timings_html"><div class="ttname"><a href="structeztimer_1_1Timings.html">eztimer::Timings</a></div><div class="ttdoc">Timings for each function.</div><div class="ttdef"><b>Definition</b> eztimer.hpp:68</div></div>
-<div class="ttc" id="astructeztimer_1_1Timings_html_a28cbf40063e48daf7b5a0c2af74e7a49"><div class="ttname"><a href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">eztimer::Timings::times</a></div><div class="ttdeci">std::vector&lt; std::chrono::duration&lt; double &gt; &gt; times</div><div class="ttdef"><b>Definition</b> eztimer.hpp:72</div></div>
-<div class="ttc" id="astructeztimer_1_1Timings_html_a86fda2f6cbb39353416f6f5c791eedd8"><div class="ttname"><a href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">eztimer::Timings::sd</a></div><div class="ttdeci">std::chrono::duration&lt; double &gt; sd</div><div class="ttdef"><b>Definition</b> eztimer.hpp:82</div></div>
-<div class="ttc" id="astructeztimer_1_1Timings_html_af7b0198bbf6303f3217a27575d027303"><div class="ttname"><a href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">eztimer::Timings::mean</a></div><div class="ttdeci">std::chrono::duration&lt; double &gt; mean</div><div class="ttdef"><b>Definition</b> eztimer.hpp:77</div></div>
+<div class="ttc" id="anamespaceeztimer_html_a371dee9730672f845910ce479347ec6e"><div class="ttname"><a href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">eztimer::time</a></div><div class="ttdeci">std::vector&lt; Timings &gt; time(const std::vector&lt; std::function&lt; Result_()&gt; &gt; &amp;funs, const std::function&lt; void(const Result_ &amp;, std::size_t)&gt; &amp;check, const Options &amp;opt)</div><div class="ttdef"><b>Definition</b> eztimer.hpp:105</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html"><div class="ttname"><a href="structeztimer_1_1Options.html">eztimer::Options</a></div><div class="ttdoc">Options for time().</div><div class="ttdef"><b>Definition</b> eztimer.hpp:27</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html_a33bc07b4322bb49999aa0d674eb63096"><div class="ttname"><a href="structeztimer_1_1Options.html#a33bc07b4322bb49999aa0d674eb63096">eztimer::Options::burn_in</a></div><div class="ttdeci">int burn_in</div><div class="ttdef"><b>Definition</b> eztimer.hpp:38</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html_a3eae88a86e674a4b278b908bfe8a4878"><div class="ttname"><a href="structeztimer_1_1Options.html#a3eae88a86e674a4b278b908bfe8a4878">eztimer::Options::seed</a></div><div class="ttdeci">unsigned long long seed</div><div class="ttdef"><b>Definition</b> eztimer.hpp:43</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html_a5178899482fa713364c02daebfbec1fc"><div class="ttname"><a href="structeztimer_1_1Options.html#a5178899482fa713364c02daebfbec1fc">eztimer::Options::iterations</a></div><div class="ttdeci">int iterations</div><div class="ttdef"><b>Definition</b> eztimer.hpp:32</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html_a57950559685cf449140e6bd819ee620b"><div class="ttname"><a href="structeztimer_1_1Options.html#a57950559685cf449140e6bd819ee620b">eztimer::Options::max_time_per_function</a></div><div class="ttdeci">std::optional&lt; std::chrono::duration&lt; double &gt; &gt; max_time_per_function</div><div class="ttdef"><b>Definition</b> eztimer.hpp:53</div></div>
+<div class="ttc" id="astructeztimer_1_1Options_html_ad9567c0e8bc4eb080363d1cd0e68a59b"><div class="ttname"><a href="structeztimer_1_1Options.html#ad9567c0e8bc4eb080363d1cd0e68a59b">eztimer::Options::max_time_total</a></div><div class="ttdeci">std::optional&lt; std::chrono::duration&lt; double &gt; &gt; max_time_total</div><div class="ttdef"><b>Definition</b> eztimer.hpp:63</div></div>
+<div class="ttc" id="astructeztimer_1_1Timings_html"><div class="ttname"><a href="structeztimer_1_1Timings.html">eztimer::Timings</a></div><div class="ttdoc">Timings for each function.</div><div class="ttdef"><b>Definition</b> eztimer.hpp:69</div></div>
+<div class="ttc" id="astructeztimer_1_1Timings_html_a28cbf40063e48daf7b5a0c2af74e7a49"><div class="ttname"><a href="structeztimer_1_1Timings.html#a28cbf40063e48daf7b5a0c2af74e7a49">eztimer::Timings::times</a></div><div class="ttdeci">std::vector&lt; std::chrono::duration&lt; double &gt; &gt; times</div><div class="ttdef"><b>Definition</b> eztimer.hpp:73</div></div>
+<div class="ttc" id="astructeztimer_1_1Timings_html_a86fda2f6cbb39353416f6f5c791eedd8"><div class="ttname"><a href="structeztimer_1_1Timings.html#a86fda2f6cbb39353416f6f5c791eedd8">eztimer::Timings::sd</a></div><div class="ttdeci">std::chrono::duration&lt; double &gt; sd</div><div class="ttdef"><b>Definition</b> eztimer.hpp:83</div></div>
+<div class="ttc" id="astructeztimer_1_1Timings_html_af7b0198bbf6303f3217a27575d027303"><div class="ttname"><a href="structeztimer_1_1Timings.html#af7b0198bbf6303f3217a27575d027303">eztimer::Timings::mean</a></div><div class="ttdeci">std::chrono::duration&lt; double &gt; mean</div><div class="ttdef"><b>Definition</b> eztimer.hpp:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
