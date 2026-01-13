@@ -145,7 +145,7 @@ Quick start</h1>
 </div><!-- fragment --><p>Check out the <a href="https://tatami-inc.github.io/eztimer/">reference documentation</a> for more details.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Comments</h1>
-<p>The <code>check</code> function in <code><a class="el" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">eztimer::time()</a></code> ensures that the result of each function call has a user-visible effect on the program. This ensures that the function call will not be optimized away by the compiler. In the example above, we threw an error if the result of each call did not follow expectations. We could also be more concrete if we expected all functions to return the same result:</p>
+<p>The <code>check</code> argument to <code><a class="el" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">eztimer::time()</a></code> ensures that the result of each function call has a user-visible effect on the program. This prevents the compiler from optimizing away the function call entirely. In the example above, we threw an error if the result of each call did not follow our non-zero expectation. We could also be more concrete if we expected all functions to return the same result:</p>
 <div class="fragment"><div class="line">std::optional&lt;double&gt; expected;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> check = [&amp;](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x, std::size_t i) -&gt; <span class="keywordtype">void</span> {</div>
