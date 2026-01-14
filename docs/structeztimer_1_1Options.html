@@ -114,6 +114,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a57950559685cf449140e6bd819ee620b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9567c0e8bc4eb080363d1cd0e68a59b" id="r_ad9567c0e8bc4eb080363d1cd0e68a59b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::chrono::duration&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9567c0e8bc4eb080363d1cd0e68a59b">max_time_total</a></td></tr>
 <tr class="separator:ad9567c0e8bc4eb080363d1cd0e68a59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fbef1cdc7d17cf8eff224b80ca7bc20" id="r_a6fbef1cdc7d17cf8eff224b80ca7bc20"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fbef1cdc7d17cf8eff224b80ca7bc20">setup</a></td></tr>
+<tr class="separator:a6fbef1cdc7d17cf8eff224b80ca7bc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structeztimer_1_1Options.html" title="Options for time().">Options</a> for <code><a class="el" href="namespaceeztimer.html#a371dee9730672f845910ce479347ec6e">time()</a></code>. </p>
@@ -194,6 +196,22 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Seed for the random number generator, used to randomize the function execution order at each iteration. </p>
+
+</div>
+</div>
+<a id="a6fbef1cdc7d17cf8eff224b80ca7bc20" name="a6fbef1cdc7d17cf8eff224b80ca7bc20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fbef1cdc7d17cf8eff224b80ca7bc20">&#9670;&#160;</a></span>setup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void()&gt; eztimer::Options::setup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setup function to run before each iteration of function calls. This is not included in the timing for any function.</p>
+<p>Ignored if not set. </p>
 
 </div>
 </div>
