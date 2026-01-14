@@ -61,6 +61,14 @@ struct Options {
      * Ignored if not set.
      */
     std::optional<std::chrono::duration<double> > max_time_total;
+
+    /**
+     * Setup function to run before each iteration of function calls.
+     * This is not included in the timing for any function.
+     *
+     * Ignored if not set.
+     */
+    std::function<void()> setup;
 };
 
 /**
@@ -127,6 +135,10 @@ std::vector<Timings> time(
     auto oIt = order.begin();
 
     for (int i = 0; i < num_iterations; ++i) {
+        if (opt.setup) {
+            opt.setup();
+        }
+
         for (std::size_t f = 0; f < nfun; ++f, ++oIt) {
             const auto current = *oIt;
             auto& curout = output[current];

@@ -46,6 +46,14 @@ TEST_F(EztimerTest, Basic) {
     }
 }
 
+TEST_F(EztimerTest, SetUp) {
+    int foo = 0; 
+    eztimer::Options opt;
+    opt.setup = [&]() -> void { ++foo; };
+    auto output = eztimer::time<int>(funs, check, opt);
+    EXPECT_EQ(foo, opt.iterations + opt.burn_in);
+}
+
 TEST_F(EztimerTest, CapPerFunction) {
     eztimer::Options opt;
     opt.max_time_per_function = std::chrono::milliseconds(45);
