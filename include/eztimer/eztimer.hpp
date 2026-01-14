@@ -184,7 +184,7 @@ std::vector<Timings> time(
             curout.sd += std::chrono::duration<double>(delta * delta);
         }
         curout.sd /= curout.times.size() - 1;
-        curout.sd = std::chrono::duration<double>(curout.sd.count());
+        curout.sd = std::chrono::duration<double>(std::sqrt(curout.sd.count()));
     }
 
     return output; 
