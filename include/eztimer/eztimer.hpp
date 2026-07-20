@@ -131,6 +131,10 @@ std::vector<Timings> time(
     }
 
     std::vector<Timings> output(nfun);
+    for (auto& out : output) {
+        out.times.reserve(num_iterations);
+    }
+
     auto total_time = std::chrono::duration<double>(0);
     auto oIt = order.begin();
 
